@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haven Essence Co. - Find Your Signature Scent</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo.jpg" alt="Haven Essence Co." class="nav-logo">
+        </div>
+        <nav>
+            <a href="#mens">Men's</a>
+            <a href="#womens">Women's</a>
+            <div class="cart-icon" id="cartBtn">
+                🛒 <span id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="assets/logo.jpg" alt="Haven Essence Co." class="hero-logo">
+                <h2 class="headline">Find Your Signature Scent</h2>
+                <p class="tagline">Luxury fragrances inspired by elegance, beauty, and confidence.</p>
+                <p class="subtext">From fresh florals to bold musks—there's a scent made just for you.</p>
+                <button class="btn btn-primary"
+                    onclick="document.getElementById('mens').scrollIntoView({behavior: 'smooth'})">Discover the
+                    Collection</button>
+            </div>
+        </section>
+
+        <section id="mens" class="collection mens-collection">
+            <h3 class="section-title">Men's Collection</h3>
+            <div class="product-grid" id="mens-grid"></div>
+        </section>
+
+        <section id="womens" class="collection womens-collection">
+            <h3 class="section-title">Women's Collection</h3>
+            <div class="product-grid" id="womens-grid"></div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeProduct">&times;</span>
+            <div class="modal-body" id="modal-body">
+                <!-- Data injected via app.js -->
+            </div>
+
+            <div class="reviews-section">
+                <h4>Customer Reviews</h4>
+                <div id="reviews-list"></div>
+                <div class="add-review">
+                    <input type="text" id="reviewer-name" placeholder="Your Name">
+                    <div class="star-rating-input">
+                        <label>Rating: </label>
+                        <select id="review-rating">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="1">⭐ (1/5)</option>
+                        </select>
+                    </div>
+                    <textarea id="review-text" placeholder="Write your thoughts..."></textarea>
+                    <button class="btn btn-dark" id="submit-review">Publish Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-content">
+            <span class="close-btn" id="closeCheckout">&times;</span>
+            <h2>Secure Checkout</h2>
+            <div class="order-summary" id="order-summary"></div>
+
+            <div class="delivery-options">
+                <h3>Delivery Method</h3>
+                <label>
+                    <input type="radio" name="delivery" value="same-day" checked>
+                    Same Day Delivery
+                    <span class="badge">Fastest</span>
+                </label>
+            </div>
+
+            <div class="payment-options">
+                <h3>Payment Method</h3>
+                <label><input type="radio" name="payment" value="gcash" checked> GCash</label>
+                <label><input type="radio" name="payment" value="cod"> Cash on Delivery (COD)</label>
+            </div>
+
+            <button class="btn btn-primary" id="confirm-order" style="width: 100%; margin-top: 10px;">Confirm &
+                Pay</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
